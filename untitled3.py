@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 
-
+@st.experimental_memo
 def image_to_base64(file):
         with open(file, "rb") as f:
             data = f.read()
