@@ -13,7 +13,7 @@ img = image_to_base64("tenis.jpg")
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-background-image: url("data:image/pbg;base64,{img}");
+background-image: url("data:image/png;base64,{img}");
 background-size: cover;
 }
 </style>
