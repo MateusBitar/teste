@@ -1,22 +1,20 @@
 import streamlit as st
 import base64
 
-@st.experimental_memo
-def image_to_base64(file):
-        with open(file, "rb") as f:
-            data = f.read()
-        return base64.b64encode(data).decode()
-    
-    
-img = image_to_base64("tenis.jpg")
+@st.cache_data
+def img_to_base64(foto):
+    with open(foto, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-page_bg_img = """
+img = img_to_base64("tennis.jpg")
+
+page = f"""
 <style>
-[data-testid="stAppViewContainer"] {{
-background-image: url("data:image/png;base64,{img}");
-background-size: cover;
-}}
+[data-testid="stAppViewContainer"] > div:first-child{{
+background-image: url("data:image/jpg;base64,{img}");
+    }}
+
 </style>
 """
-st.markdown(page_bg_img, unsafe_allow_html= True)
-st.title("Teste")
+st.markdown(page, unsafe_allow_html = True) 
