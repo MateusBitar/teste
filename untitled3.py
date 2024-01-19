@@ -7,7 +7,7 @@ def img_to_base64(foto):
         data = f.read()
     return base64.b64encode(data).decode()
 
-img = img_to_base64("tennis.jpg")
+img = img_to_base64("tenis.jpg")
 
 page = f"""
 <style>
